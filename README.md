@@ -14,6 +14,27 @@ Config server:
 6. Build and run to check the application 
 
 Config Client :
+Config client will be any spring boot project but need to add spring-cloud-starter-config and actuator dependency in the pom.xml and enable
+some properties for it 
+
+Sample Pom.xml is attached 
+<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+    
+property needed to add :
+spring.config.import=optional:configserver:http://localhost:8888
+spring.cloud.config.enabled=true
+spring.application.name = rateplanservice-application 
+
+Note :
+----the name of application should match for properety file mentioned in git repo along with the profile needed dev,sit etc.
+If refresh option is required then actuator needs to be enabled.
 
 
 
